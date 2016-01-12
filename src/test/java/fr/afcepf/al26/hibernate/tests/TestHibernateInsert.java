@@ -23,14 +23,18 @@ public class TestHibernateInsert {
         try {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
-            Etudiant etudiant = new Etudiant(null,"etudiant1","prenom","adresse","tel","al26","E1000222");
+            Etudiant etudiant = new Etudiant(null,"etudiant2","prenom","adresse","tel","al26","E1000222");
+            Etudiant etudiant2 = new Etudiant(null,"etudiant3","prenom","adresse","tel","al26","E1000222");
             Formateur formateur = new Formateur(null,"formateur","prenom","adresse","tel",480.0f,null);
+            Formateur formateur2 = new Formateur(null,"formateur2","prenom","adresse","tel",480.0f,null);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("H:mm");
             Cours cours = new Cours("intitule",simpleDateFormat.parse("07:00"),formateur);
             Cours cours2 = new Cours("hibernate",simpleDateFormat.parse("07:00"),formateur);
             Cours cours3 = new Cours("spring",simpleDateFormat.parse("07:00"),formateur);
             session.save(etudiant);
+            session.save(etudiant2);
             session.save(formateur);
+            session.save(formateur2);
             session.save(cours);
             session.save(cours2);
             session.save(cours3);
