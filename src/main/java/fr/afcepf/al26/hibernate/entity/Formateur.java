@@ -14,6 +14,11 @@ public class Formateur extends Personne {
     @OneToMany(mappedBy = "formateur")
     private List<Cours> cours;
 
+    @Override
+    public String toString() {
+        return "Formateur" +getNom()+", salaire=" + salaire;
+    }
+
     public Formateur() {
     }
 

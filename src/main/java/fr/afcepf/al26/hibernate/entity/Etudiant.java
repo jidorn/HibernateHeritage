@@ -10,29 +10,35 @@ import javax.persistence.Entity;
 @DiscriminatorValue(value = "ETUDIANT")
 public class Etudiant extends Personne{
     @Column(name = "numero",length = 255)
-    private Integer numEtudiant;
+    private String numEtudiant;
     @Column(name = "cursus",length = 50)
     private String cursus;
+
+    @Override
+    public String toString() {
+        return "Etudiant=" +getNom()+
+                ", cursus='" + cursus;
+    }
 
     public Etudiant() {
     }
 
-    public Etudiant(Integer numEtudiant, String cursus) {
+    public Etudiant(String numEtudiant, String cursus) {
         this.numEtudiant = numEtudiant;
         this.cursus = cursus;
     }
 
-    public Etudiant(Integer id, String nom, String prenom, String adresse, String tel, Integer numEtudiant, String cursus) {
+    public Etudiant(Integer id, String nom, String prenom, String adresse, String tel, String numEtudiant, String cursus) {
         super(id, nom, prenom, adresse, tel);
         this.numEtudiant = numEtudiant;
         this.cursus = cursus;
     }
 
-    public Integer getNumEtudiant() {
+    public String getNumEtudiant() {
         return numEtudiant;
     }
 
-    public void setNumEtudiant(Integer numEtudiant) {
+    public void setNumEtudiant(String numEtudiant) {
         this.numEtudiant = numEtudiant;
     }
 

@@ -21,14 +21,21 @@ public class Cours {
     @JoinColumn(name = "id_personne", nullable = false)
     private Formateur formateur;
 
-    public Cours(Integer id, String intitule, Date duree) {
-        this.id = id;
+    public Cours(String intitule, Date duree, Formateur formateur) {
         this.intitule = intitule;
         this.duree = duree;
+        this.formateur = formateur;
     }
 
     public Cours() {
+    }
 
+    public Formateur getFormateur() {
+        return formateur;
+    }
+
+    public void setFormateur(Formateur formateur) {
+        this.formateur = formateur;
     }
 
     public Date getDuree() {
